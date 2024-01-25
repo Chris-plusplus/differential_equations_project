@@ -26,7 +26,6 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	std::size_t n_percent = n / 100;
 	std::size_t last_percent = 0;
 
 	std::cout << "creating matrix...\n";
@@ -45,8 +44,8 @@ int main(int argc, char** argv) {
 			B_matrix[i + 1][i] = B_matrix[i][i + 1];
 		}
 
-		if (n_percent != 0 and i / n_percent != last_percent) {
-			last_percent = i / n_percent;
+		if (std::size_t((double)i / (double)n * 100.0) != last_percent) {
+			last_percent = std::size_t((double)i / (double)n * 100.0);
 			std::cout << '\r' << last_percent << "%";
 		}
 	}

@@ -7,7 +7,6 @@ void gauss_elimination(matrix_t& L, vector_t& P, std::size_t n_limit, bool debug
 		n = n_limit;
 	}
 
-	std::size_t n_percent = n / 100;
 	std::size_t last_percent = 0;
 	if (debug) std::cout << "0%";
 	for (std::size_t row = 0; row != n; ++row) {
@@ -18,8 +17,8 @@ void gauss_elimination(matrix_t& L, vector_t& P, std::size_t n_limit, bool debug
 			mx::subtract_rows(L, P, to_subtract_from, row, scalar);
 		}
 
-		if (debug and n_percent != 0 and row / n_percent != last_percent) {
-			last_percent = row / n_percent;
+		if (debug and std::size_t((double)row / (double)n * 100.0) != last_percent) {
+			last_percent = std::size_t((double)row / (double)n * 100.0);
 			std::cout << '\r' << last_percent << "%";
 		}
 	}

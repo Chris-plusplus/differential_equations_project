@@ -8,7 +8,6 @@ vector_t solve_triangle(matrix_t& L, vector_t& P, std::size_t n_limit, bool debu
 	}
 	vector_t result(n);
 
-	std::size_t n_percent = n / 100;
 	std::size_t last_percent = 0;
 	if (debug) std::cout << "0%";
 	std::size_t debug_row = 0;
@@ -22,8 +21,8 @@ vector_t solve_triangle(matrix_t& L, vector_t& P, std::size_t n_limit, bool debu
 		result[row] /= L[row][row];
 		P[row] = result[row];
 
-		if (debug and n_percent != 0 and debug_row / n_percent != last_percent) {
-			last_percent = debug_row / n_percent;
+		if (debug and std::size_t((double)debug_row / (double)n * 100.0) != last_percent) {
+			last_percent = std::size_t((double)debug_row / (double)n * 100.0);
 			std::cout << '\r' << last_percent << "%";
 		}
 	}
