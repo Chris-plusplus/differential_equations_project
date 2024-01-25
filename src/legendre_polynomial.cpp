@@ -92,7 +92,7 @@ legendre_polynomial::value_derivative_pair legendre_polynomial::compute_vd(doubl
 
 void legendre_polynomial::compute() {
 	for (std::size_t i = 0; i != n(); ++i) {
-		// root approximation formula found on the internet
+		// root approximation formula available on German wikipedia
 		double root = cos(std::numbers::pi_v<double> *((double)i - 0.25) / ((double)n() + 0.5));
 		
 		auto vd = compute_vd(root);
