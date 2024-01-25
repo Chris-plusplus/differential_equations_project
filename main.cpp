@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
 			std::cout << "Input finite elements count: ";
 			std::cin >> n;
 		}
-		std::cout << "Input integration iterations: ";
+		std::cout << "Input integration points: ";
 		std::cin >> equation::integral_n;
 	}
 	if (argc > 1) {
